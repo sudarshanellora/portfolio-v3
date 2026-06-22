@@ -4,7 +4,7 @@ Business Analyst | Decision Intelligence | Business Analytics | AI
 
 Welcome to my professional portfolio website.
 
-🌐 **Live Website:** https://www.sudarshanellora.com
+🌐 **Live Website:** sudarshanellora.com
 
 ---
 

@@ -965,7 +965,16 @@ export default function App() {
                 className="w-20 h-20 rounded-2xl flex items-center justify-center font-serif text-3xl font-extrabold relative shadow-2xl"
                 style={{ background: 'var(--gradient-main)' }}
               >
-                SE
+                <div
+                className="w-20 h-20 rounded-2xl flex items-center justify-center"
+                style={{ background: "var(--gradient-main)" }}
+                >
+                <img
+                src="/logo.svg"
+                alt="Sudarshan Ellora Logo"
+                className="w-16 h-16 object-contain"
+                />
+                </div>
                 <div className="absolute inset-0 rounded-2xl border border-[rgba(255,255,255,0.2)] animate-pulse" />
               </div>
               <motion.div 
@@ -996,12 +1005,15 @@ export default function App() {
                 className="flex items-center gap-3.5 group focus:outline-none"
                 id="header-home-link"
               >
-                <div 
-                  className="w-[38px] h-[38px] rounded-lg flex items-center justify-center font-serif text-sm font-bold text-white transition-transform group-hover:scale-105"
-                  style={{ background: 'var(--gradient-main)' }}
-                >
-                  SE
-                </div>
+              <div
+              className="w-[42px] h-[42px] flex items-center justify-center"
+              >
+              <img
+              src="/favicon.svg"
+              alt="Sudarshan Ellora Logo"
+              className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+              />
+              </div>
                 <span className="font-sans text-[15px] font-medium tracking-tight hover:text-white transition-colors duration-200">
                   Sudarshan Ellora
                 </span>
