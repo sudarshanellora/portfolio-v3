@@ -1,0 +1,6 @@
+{
+  "name": "Sudarshan Ellora Portfolio",
+  "description": "Personal brand website for Sudarshan Ellora, MSc Business Analytics candidate at UCD Smurfit.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
