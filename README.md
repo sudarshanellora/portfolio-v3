@@ -1,20 +1,70 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# 👋 Sudarshan Ellora
 
-# Run and deploy your AI Studio app
+Business Analyst | Decision Intelligence | Business Analytics | AI
 
-This contains everything you need to run your app locally.
+Welcome to my professional portfolio website.
 
-View your app in AI Studio: https://ai.studio/apps/1dbf144c-b9dd-40f5-addb-fd36cf78f213
+🌐 **Live Website:** https://www.sudarshanellora.com
+
+---
+
+## About Me
+
+I'm an MSc Business Analytics student at University College Dublin with experience in Business Analysis, Data Analytics, Decision Intelligence, Artificial Intelligence, Forecasting, and Business Process Improvement.
+
+I enjoy solving business problems using data, statistical analysis, machine learning, and business intelligence to deliver measurable business impact.
+
+---
+
+## Website
+
+This repository contains the source code for my personal portfolio website.
+
+The website showcases:
+
+- Professional Experience
+- Business Impact
+- Featured Case Studies
+- Projects
+- Skills
+- Certifications
+- Education
+- Contact Information
+
+---
+
+## Tech Stack
+
+- React 19
+- TypeScript
+- Vite
+- Framer Motion
+- CSS3
+- GitHub
+- Vercel
+
+---
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
+Clone the repository
+
+```bash
+git clone https://github.com/sudarshanellora/portfolio-v3.git
 
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+npm install
+
+npm run dev
+
+Contact
+
+📧 Email: sudarshan.ellora@ucdconnect.ie
+
+💼 LinkedIn: https://linkedin.com/in/sudarshane
+
+🐙 GitHub: https://github.com/sudarshanellora
+
+🌐 Portfolio: https://www.sudarshanellora.com
+
+📍 Dublin, Ireland
