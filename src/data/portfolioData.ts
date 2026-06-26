@@ -318,7 +318,7 @@ export const certificationsData: CertificationItem[] = [
   { org: "Deloitte", name: "Data Analytics Job Simulation", status: "Completed" },
   { org: "SAP", name: "SAP Professional Fundamentals", status: "Completed" },
   { org: "CSSC", name: "Lean Six Sigma Yellow Belt", status: "Completed" },
-  { org: "McKinsey", name: "McKinsey Forward Program", status: "In Progress" },
+  { org: "McKinsey", name: "McKinsey Forward Program", status: "Completed" },
   { org: "PMI", name: "PMI Essentials M.O.R.E. — Maximising Project Success", status: "In Progress" }
 ];
 
