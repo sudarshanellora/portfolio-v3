@@ -213,6 +213,45 @@ function CollapsibleExperienceCard({ exp }: CollapsibleExperienceCardProps) {
   );
 }
 
+function ResumeSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <h2 className="text-xs font-bold tracking-wider text-[#1a365d] uppercase border-b border-[#1a365d] pb-0.5 mb-2">{title}</h2>
+      {children}
+    </div>
+  );
+}
+
+function ResumeRole({ title, org, period, bullets }: { title: string; org: string; period: string; bullets: string[] }) {
+  return (
+    <div>
+      <div className="flex justify-between items-baseline gap-3">
+        <h3 className="text-[13px] font-bold text-gray-900">{title}</h3>
+        <span className="text-[11.5px] text-gray-500 font-mono shrink-0">{period}</span>
+      </div>
+      <p className="text-[12px] text-blue-800 font-semibold">{org}</p>
+      <ul className="list-disc pl-5 text-[11.5px] text-gray-700 mt-0.5 space-y-0.5">
+        {bullets.map((b) => <li key={b}>{b}</li>)}
+      </ul>
+    </div>
+  );
+}
+
+function ResumeProject({ title, meta, link, bullets }: { title: string; meta?: string; link?: string; bullets: string[] }) {
+  return (
+    <div>
+      <h3 className="text-[12.5px] font-bold text-gray-900">
+        {title}
+        {meta && <span className="font-normal text-gray-500"> | {meta}</span>}
+        {link && <> | <a href={link} target="_blank" rel="noreferrer" className="font-normal text-blue-700 underline">Live dashboard</a></>}
+      </h3>
+      <ul className="list-disc pl-5 text-[11.5px] text-gray-700 space-y-0.5 mt-0.5">
+        {bullets.map((b) => <li key={b}>{b}</li>)}
+      </ul>
+    </div>
+  );
+}
+
 function ResumeView() {
   const handlePrint = () => {
     window.print();
@@ -275,15 +314,14 @@ function ResumeView() {
         
         {/* Name Header and Contacts */}
         <div className="text-center border-b border-gray-200 pb-5">
-          <h1 className="text-3xl md:text-3xl font-bold tracking-tight text-gray-900 mb-2 font-sans">
-            SUDARSHAN ELLORA
-          </h1>
-          <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-1.5 text-xs text-gray-600 font-sans tracking-wide">
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900 mb-1 font-sans">SUDARSHAN ELLORA</h1>
+          <p className="text-[13px] font-semibold text-[#1a365d] mb-2">Business &amp; Data Analyst | SQL, Python &amp; Tableau | Forecasting, Process Improvement &amp; Automation</p>
+          <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1.5 text-xs text-gray-600 font-sans tracking-wide">
             <span>📍 Dublin, Ireland</span>
             <span className="text-gray-300">•</span>
             <a href="tel:+353899713371" className="hover:text-blue-600 transition">📞 +353 899713371</a>
             <span className="text-gray-300">•</span>
-            <a href="mailto:sudarshan.ellora@ucdconnect.ie" className="hover:text-blue-600 transition">✉️ sudarshan.ellora@ucdconnect.ie</a>
+            <a href="mailto:sudarshanelluru01@gmail.com" className="hover:text-blue-600 transition">✉️ sudarshanelluru01@gmail.com</a>
             <span className="text-gray-300">•</span>
             <a href="https://linkedin.com/in/sudarshane" target="_blank" rel="noreferrer" className="hover:text-blue-600 transition">linkedin.com/in/sudarshane</a>
             <span className="text-gray-300">•</span>
@@ -291,189 +329,91 @@ function ResumeView() {
           </div>
         </div>
 
-        {/* Profile statement */}
-        <div>
-          <h2 className="text-xs font-bold tracking-wider text-[#1a365d] uppercase border-b border-[#1a365d] pb-0.5 mb-2">
-            Profile
-          </h2>
+        <ResumeSection title="Profile">
           <p className="text-[12.5px] leading-relaxed text-gray-700">
-            MSc Business Analytics candidate at UCD Smurfit with experience driving operational improvements through data analysis, forecasting, and performance monitoring. Delivered measurable business impact, including <strong>€2.6M cost savings</strong>, <strong>15% efficiency gains</strong>, and <strong>40% faster reporting cycles</strong> through cross-functional collaboration and analytics-driven decision support.
+            Business &amp; Data Analyst with an MSc in Business Analytics (UCD Smurfit) and an engineering background, turning multi-source business data into decisions through SQL, Python, forecasting and process improvement. Delivered <strong>€2.6M in annual savings</strong>, <strong>35% fewer stockouts</strong> and <strong>40% faster reporting</strong> while reporting directly to a CEO, and currently building and validating ML models at Flyrank AI.
           </p>
-        </div>
+        </ResumeSection>
 
-        {/* Education Row-Block */}
-        <div>
-          <h2 className="text-xs font-bold tracking-wider text-[#1a365d] uppercase border-b border-[#1a365d] pb-0.5 mb-2">
-            Education
-          </h2>
-          <div className="flex flex-col gap-3.5">
-            <div>
-              <div className="flex justify-between items-baseline">
-                <h3 className="text-[13px] font-bold text-gray-900">
-                  Master of Science in Business Analytics | Grade: 2:1
-                </h3>
-                <span className="text-xs text-gray-500 font-mono">September 2025 – Present</span>
-              </div>
-              <p className="text-[12px] text-gray-600 font-semibold">University College Dublin Michael Smurfit Graduate Business School, Dublin 4, Dublin, Ireland</p>
-              <ul className="list-disc pl-5 text-[11.5px] text-gray-700 mt-0.5 space-y-0.5">
-                <li>UCD Advantage award, UCD Future Skills award, Participated in Creative Hackathon</li>
-              </ul>
-            </div>
-
-            <div>
-              <div className="flex justify-between items-baseline">
-                <h3 className="text-[13px] font-bold text-gray-900">
-                  Bachelor of Engineering in Electronics and Communication | Grade: 1:1
-                </h3>
-                <span className="text-xs text-gray-500 font-mono">August 2019 - June 2023</span>
-              </div>
-              <p className="text-[12px] text-gray-600 font-semibold">Visvesvaraya Technological University (VTU) — JSS Academy Of Technical Education, Bengaluru, Karnataka, India</p>
-              <ul className="list-disc pl-5 text-[11.5px] text-gray-700 mt-0.5 space-y-0.5">
-                <li>Co-founded AI Club, research paper published in EMITTER International Journal of Engineering Technology, secured the best project and presented at IEEE</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* Work Experience with Previous Roles Added */}
-        <div>
-          <h2 className="text-xs font-bold tracking-wider text-[#1a365d] uppercase border-b border-[#1a365d] pb-0.5 mb-2">
-            Experience
-          </h2>
+        <ResumeSection title="Work Experience">
           <div className="flex flex-col gap-4">
-            
-            {/* Active role 1 */}
+            <ResumeRole title="Artificial Intelligence Intern" org="Flyrank AI, Dublin, Ireland" period="Aug 2026 – Present" bullets={[
+              "Built and evaluated an ML pipeline in Python (logistic regression, decision tree, random forest) on a 30,000-row structured dataset with 44 features, using client-holdout validation to prevent cross-client leakage",
+              "Random forest reached Precision@50 of 0.74 vs. 0.24 for a hand-written baseline rule, a 3.1x improvement in correctly prioritising pages for review",
+              "Diagnosed and corrected a data-leakage issue by identifying a feature that directly encoded the target label",
+              "Use Claude, ChatGPT and Gemini daily, plus n8n for workflow automation when needed, keeping client data out of AI tools"
+            ]} />
+            <ResumeRole title="Industry Capstone Project Consultant" org="Stonehouse Marketing Ltd, Dublin, Ireland" period="May 2026 – Aug 2026" bullets={[
+              "Led a team of 3 to build an end-to-end decision support system for product carbon footprints across 82 products, delivered in 3 months against a 3.5-month plan",
+              "Automated a manual carbon accounting process with a repeatable, auditable Python pipeline, replacing consultant-dependent analysis",
+              "Integrated three heterogeneous data sources, mapping 45+ product and material types to emission databases with an automated fallback hierarchy and embedded data-quality controls",
+              "Identified the products driving 80% of emissions through Pareto-ranked hotspot analysis, aligned to GHG Protocol and ISO 14064/14067, and explained results to the client through reports and flowcharts"
+            ]} />
+            <ResumeRole title="Management Trainee (Data & Operational Analyst)" org="Wired Mode, Bengaluru, India" period="Oct 2024 – Jul 2025" bullets={[
+              "Applied Lean Six Sigma, Kaizen and Fishbone root-cause analysis across Sales, Quality and Supply Chain workflows, prioritising automation opportunities that delivered €2.6M in annual savings and reclaimed 200+ man-hours per quarter",
+              "Analysed historical sales patterns with statistical and time-series analysis to improve forecasting inputs, reducing inventory stockouts by 35%",
+              "Built Tableau and Python KPI dashboards for senior leadership, improving reporting efficiency by 40%",
+              "Owned team budgeting for client orders and facilitated workshops with Finance and Operations, turning supplier-delay data into impact assessments that reduced budget overruns by 20%",
+              "Acted as analyst liaison across clients, procurement and supply chain, translating client specifications into production requirements and reporting progress and issues directly to the CEO"
+            ]} />
             <div>
-              <div className="flex justify-between items-baseline">
-                <h3 className="text-[13px] font-bold text-gray-900">Industry Capstone Project Consultant</h3>
-                <span className="text-[11.5px] text-gray-500 font-mono">May 2026 - Present</span>
-              </div>
-              <p className="text-[12px] text-blue-800 font-semibold">Stonehouse Marketing Ltd, Dublin, Ireland</p>
+              <h3 className="text-[12.5px] font-bold text-gray-900">Earlier Experience</h3>
               <ul className="list-disc pl-5 text-[11.5px] text-gray-700 mt-0.5 space-y-0.5">
-                <li>Map end-to-end emissions data flows and decision points across the product lifecycle to pinpoint exactly where human oversight is still required before any automation, surfacing data constraints and traceability gaps that would otherwise only emerge after deployment</li>
-                <li>Build relational data schemas and reporting pipelines in Python, SQL, and Azure/M365 with embedded handoff instrumentation, turning fragmented sustainability data into an auditable, standards-aligned reporting process (GHG Protocol, ISO 14064:2018)</li>
-                <li>Develop a structured PCF calculation framework and forecasting logic from historical product and packaging data, defining the specific data-readiness thresholds a future AI model would need to clear before its output can be trusted for production forecasting</li>
+                <li><strong>Patent Associate Trainee</strong>, Prasa IP LLP, Bengaluru (Sep – Oct 2024): patent searching and analysis, producing structured search reports</li>
+                <li><strong>Marketing Analyst Intern</strong>, Clear Tax, Bengaluru (Jul – Aug 2023): campaign and customer analysis using Excel, SQL and dashboards</li>
+                <li><strong>Imagery Analyst Intern</strong>, Autoyos Pvt Ltd, Bengaluru (Sep – Oct 2022): built and processed a 170+ image dataset for ML classification</li>
               </ul>
             </div>
-
-            {/* Active role 2 */}
-            <div>
-              <div className="flex justify-between items-baseline">
-                <h3 className="text-[13px] font-bold text-gray-900">Management Trainee (Data & Operational Analyst)</h3>
-                <span className="text-[11.5px] text-gray-500 font-mono">October 2024 - July 2025</span>
-              </div>
-              <p className="text-[12px] text-blue-800 font-semibold">Wired Mode, Bengaluru</p>
-              <ul className="list-disc pl-5 text-[11.5px] text-gray-700 mt-0.5 space-y-0.5">
-                <li>Tasked with finding where Sales, Quality, and Supply Chain workflows broke down, mapped decision points and data gaps end-to-end, then judged which automation candidates were actually reliable enough to act on recommendations that were implemented and delivered €2.6M in annual savings and 200+ reclaimed man-hours per quarter</li>
-                <li>Evaluated the reliability of patterns in historical sales data before trusting them as forecasting inputs, screening out unreliable signals and shaping the inputs that ultimately cut inventory stockouts by 35%</li>
-                <li>Ran structured sessions with Finance and Operations stakeholders to pressure-test resource allocation assumptions, then translated the findings into prioritised, decision-ready recommendations that cut budget overruns by 20%</li>
-                <li>Designed Tableau and Python dashboards that made the reasoning behind key operational decisions transparent to senior stakeholders, cutting reporting turnaround by 40% and giving leadership a clear basis for judging recommendation quality</li>
-              </ul>
-            </div>
-
-            {/* Prasa IP LLP */}
-            <div>
-              <div className="flex justify-between items-baseline">
-                <h3 className="text-[13px] font-bold text-gray-900">Patent Associate Trainee</h3>
-                <span className="text-[11.5px] text-gray-500 font-mono">September 2024 – October 2024</span>
-              </div>
-              <p className="text-[12px] text-blue-800 font-semibold">Prasa IP LLP, Bengaluru, India</p>
-              <ul className="list-disc pl-5 text-[11.5px] text-gray-700 mt-0.5 space-y-0.5">
-                <li>Conducted in-depth research and analysis of global innovation and market trends, producing reports that influenced strategies impacting €5M+ in business decisions.</li>
-                <li>Analyzed large datasets to identify risks, overlaps, and opportunities, enabling a 20% reduction in potential compliance risks.</li>
-                <li>Translated complex technical findings into clear, data-driven reports, improving stakeholder decision-making efficiency by 30%.</li>
-                <li>Provided strategic recommendations from research insights that enhanced competitive positioning and supported market entry worth €2M+ potential revenue.</li>
-              </ul>
-            </div>
-
-            {/* Clear Tax */}
-            <div>
-              <div className="flex justify-between items-baseline">
-                <h3 className="text-[13px] font-bold text-gray-900">Marketing Analyst Intern</h3>
-                <span className="text-[11.5px] text-gray-500 font-mono">July 2023 – August 2023</span>
-              </div>
-              <p className="text-[12px] text-blue-800 font-semibold">Clear Tax, Bengaluru, India</p>
-              <ul className="list-disc pl-5 text-[11.5px] text-gray-700 mt-0.5 space-y-0.5">
-                <li>Conducted data-driven market and customer analysis using Excel, SQL, and visualization tools, providing actionable insights that guided strategic business decisions.</li>
-                <li>Analyzed campaign performance metrics and customer behavior trends, enabling teams to optimize marketing strategies and improve ROI by 20%.</li>
-                <li>Prepared comprehensive analytical reports and dashboards for stakeholders, supporting informed decision-making and operational improvements.</li>
-                <li>Collaborated with cross-functional teams to identify business opportunities, mitigate risks, and recommend process improvements, translating marketing data into business insights.</li>
-              </ul>
-            </div>
-
-            {/* Autoyos */}
-            <div>
-              <div className="flex justify-between items-baseline">
-                <h3 className="text-[13px] font-bold text-gray-900">Imagery Analyst Intern</h3>
-                <span className="text-[11.5px] text-gray-500 font-mono">September 2022 - October 2022</span>
-              </div>
-              <p className="text-[12px] text-blue-800 font-semibold">Autoyos Pvt Ltd, Bengaluru, India</p>
-              <ul className="list-disc pl-5 text-[11.5px] text-gray-700 mt-0.5 space-y-0.5">
-                <li>Collected, processed, and maintained a structured dataset of 170+ images, enabling accurate predictive analysis and model-driven insights for classification tasks.</li>
-                <li>Engineered features and applied machine learning techniques to analyze complex datasets, transforming technical outputs into actionable insights for decision-making.</li>
-                <li>Developed data-driven workflows and visualizations to interpret ML model results, supporting stakeholders in understanding trends and patterns.</li>
-                <li>Collaborated on deploying ML pipelines and deep learning models, translating technical results into business-relevant recommendations for process improvement and strategy planning.</li>
-              </ul>
-            </div>
-
-            {/* JSSATE AI Club */}
-            <div>
-              <div className="flex justify-between items-baseline">
-                <h3 className="text-[13px] font-bold text-gray-900">Co-founder & Events Lead</h3>
-                <span className="text-[11.5px] text-gray-500 font-mono">August 2021 - June 2023</span>
-              </div>
-              <p className="text-[12px] text-blue-800 font-semibold">JSSATE Bengaluru AI Club, Bengaluru, India</p>
-              <ul className="list-disc pl-5 text-[11.5px] text-gray-700 mt-0.5 space-y-0.5">
-                <li>Organized and delivered 5 major student events, including workshops and interactive sessions, with strong department-wide participation.</li>
-                <li>Collaborated with students, alumni, faculty, and industry professionals to design impactful events and activities.</li>
-                <li>Facilitated connections between students and teachers, helping 1000+ students to build a strong learning community.</li>
-                <li>Co-hosted and often served as the face and lead of the club, representing the team in front of peers and faculty.</li>
-                <li>Collected and evaluated participant feedback which improved the quality and increased student interaction by 30% every event.</li>
-                <li>Prepared event reports, summaries, presentations, and regularly acted as a speaker or presenter during sessions.</li>
-              </ul>
-            </div>
-
           </div>
-        </div>
+        </ResumeSection>
 
-        {/* Academic and Personal Projects */}
-        <div>
-          <h2 className="text-xs font-bold tracking-wider text-[#1a365d] uppercase border-b border-[#1a365d] pb-0.5 mb-2">
-            Projects
-          </h2>
+        <ResumeSection title="Projects">
           <div className="flex flex-col gap-3">
-            <div>
-              <h3 className="text-[12.5px] font-bold text-gray-900">Secure Offline AI-Assisted Analytics Platform</h3>
-              <ul className="list-disc pl-5 text-[11.5px] text-gray-700 space-y-0.5 mt-0.5">
-                <li>Set out to test whether an LLM could assist with analytics interpretation without compromising numerical accuracy, so integrated a locally hosted LLaMA3 model via Ollama, keeping all inference on-device and every deterministic calculation cleanly separated from the model's probabilistic reasoning</li>
-                <li>Designed a four-layer architecture (data processing, AI reasoning, visualisation, human decision) specifically so a human could check the model's interpretation against the underlying verified numbers at every stage, rather than accepting AI output on faith</li>
-                <li>Built the full pipeline so every AI-generated insight was independently reproducible from the raw data, making it possible to catch and flag any AI output that didn't match the underlying evidence</li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-[12.5px] font-bold text-gray-900">Orion Food Group AI & Data Governance Consulting Project</h3>
-              <ul className="list-disc pl-5 text-[11.5px] text-gray-700 space-y-0.5 mt-0.5">
-                <li>Investigated why an AI forecasting model had failed across a 12-country deployment, traced the failure to data quality (35–45% missing fields) rather than model design, and documented exactly where the model's outputs couldn't be trusted</li>
-                <li>Used structured prompt engineering with Microsoft Copilot to generate and test hypotheses about governance failure patterns, comparing AI-generated hypotheses against the actual data evidence to separate plausible-sounding explanations from the real root cause</li>
-                <li>Designed a data readiness gate and semantic reference layer to catch unreliable data before it reached the model, targeting a reduction in error rate from 18% to below 5% across the federated organisation</li>
-              </ul>
-            </div>
+            <ResumeProject title="The Loyalty Penalty: Irish mortgage rate gap analysis" meta="SQL, Python, GitHub Pages" link="https://sudarshanellora.github.io/loyalty-penalty/dashboard/" bullets={[
+              "Sized a €316m a year gap between existing and new mortgage customers, covering about 180,000 households, using Central Bank of Ireland and BPFI data",
+              "Wrote 12 SQL queries (window functions, CTEs) and 18 automated checks reconciling to published totals",
+              "Compared three lender responses on a simulated €7.9bn loan book: repricing costs €12.7m a year against €2.2m from letting switchers leave"
+            ]} />
+            <ResumeProject title="Expansion Decision for “Urban Eats” Restaurant Chain" meta="Forecasting, Linear Programming" bullets={[
+              "Forecast district-level demand to 2028 with ETS models validated on AIC, MAE and RMSE",
+              "Built a Linear Programming model that recommended the 5 best expansion districts within budget and distance constraints"
+            ]} />
+            <ResumeProject title="Orion Food Group: AI & Data Governance Consulting (simulated case)" bullets={[
+              "Diagnosed a failed AI forecasting rollout across 12 countries, tracing it to 35–45% missing-data rates and fragmented governance",
+              "Designed a data-readiness gate and semantic reference layer targeting a data-error cut from 18% to below 5%"
+            ]} />
           </div>
-        </div>
+        </ResumeSection>
 
-        {/* Key Skills section */}
-        <div>
-          <h2 className="text-xs font-bold tracking-wider text-[#1a365d] uppercase border-b border-[#1a365d] pb-0.5 mb-2">
-            Key Skills
-          </h2>
+        <ResumeSection title="Education">
+          <div className="flex flex-col gap-3.5">
+            <ResumeRole title="MSc Business Analytics | 2H1 (3.28/4.2)" org="University College Dublin, Michael Smurfit Graduate Business School" period="Sep 2025 – Sep 2026" bullets={[
+              "Core modules: Optimisation in Business, Business Decision Support Systems, Data Management and Mining, Technology Consulting, Problem Solving with Heuristics",
+              "UCD Future Skills Award (won the Business Analytics Challenge, Coca-Cola session), UCD Smurfit Global Leadership Programme, UCD Advantage Award, UCD Creative Hackathon"
+            ]} />
+            <ResumeRole title="BE Electronics and Communication Engineering | 1H (8.47/10)" org="JSS Academy of Technical Education, Bengaluru (VTU)" period="Aug 2019 – Jun 2023" bullets={[
+              "Published “A Machine Learning Classification Approach for Detection of Covid 19 using CT Images”, EMITTER International Journal of Engineering Technology (2022)",
+              "Best Project Award: non-invasive haemoglobin and glucose detection (KNN regression on PPG signals), funded by KSCST and showcased at an IEEE conference",
+              "Co-founded the AI Club; ran Python workshops and 5 major student events"
+            ]} />
+          </div>
+        </ResumeSection>
+
+        <ResumeSection title="Key Skills">
           <ul className="list-disc pl-5 text-[11.5px] text-gray-700 space-y-1">
-            <li><strong>Technical Skills:</strong> Python, SQL (BigQuery), Statistical Analysis (Forecasting, Time-Series Analysis), ETL Pipelines, Data Interpretation, Data Visualization, Tableau, Power BI, Looker Studio, Google Cloud, Dataflow, Excel, PowerPoint</li>
-            <li><strong>Analytics & Business:</strong> Business Analysis, KPI Tracking, Decision Support, Process Improvement, Stakeholder Management, Cross-functional Collaboration, Performance Monitoring, Root Cause Analysis, Reporting (MIS), Process Documentation</li>
-            <li><strong>Data & Governance:</strong> Data Governance, Metadata Lineage, Data Quality Analysis, Process Implementation, Matrixed Collaboration</li>
-            <li><strong>Certifications:</strong> Google Cloud: Data Analytics & BigQuery, Lean Six Sigma Yellow Belt (CSSC), SAP Professional Fundamentals, McKinsey Forward Program (In Progress), PMI Essentials M.O.R.E. (In Progress)</li>
+            <li><strong>Data &amp; Programming:</strong> SQL (BigQuery, window functions, CTEs), Python (Pandas, NumPy, Matplotlib, Seaborn), R, Excel</li>
+            <li><strong>Visualisation:</strong> Tableau, Power BI, Looker Studio, Streamlit, Plotly</li>
+            <li><strong>Analytics &amp; Modelling:</strong> Forecasting (ETS, time-series), Statistical Analysis, Machine Learning (random forest, regression), Optimisation (Linear Programming), Scenario Analysis</li>
+            <li><strong>Business &amp; Process:</strong> Requirements Gathering, Stakeholder Management, Workshop Facilitation, Root Cause Analysis, Lean Six Sigma, KPI Reporting</li>
+            <li><strong>AI Tools:</strong> Claude, ChatGPT, Gemini, n8n, local LLMs (LLaMA3 via Ollama)</li>
           </ul>
-        </div>
+        </ResumeSection>
+
+        <ResumeSection title="Certifications">
+          <p className="text-[11.5px] text-gray-700 leading-relaxed">
+            Google Cloud: Data Analytics &amp; BigQuery · Bloomberg Spreadsheet Analysis · Anthropic: AI Fluency Framework &amp; Foundations · Lean Six Sigma Yellow Belt (CSSC) · SAP Professional Fundamentals · McKinsey Forward Program · JPMorgan Chase Quantitative Research · BCG Strategy Consulting · Deloitte Data Analytics · PMI Essentials (in progress)
+          </p>
+        </ResumeSection>
 
       </div>
     </div>
@@ -1657,7 +1597,7 @@ export default function App() {
                   
                   {/* Subtle profile gradient & label overlay */}
                   <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-5 text-left flex flex-col justify-end">
-                    <span className="text-[10px] font-mono tracking-widest text-[var(--accent-teal)] uppercase mb-0.5">MSc Candidate</span>
+                    <span className="text-[10px] font-mono tracking-widest text-[var(--accent-teal)] uppercase mb-0.5">Business & Data Analyst</span>
                     <h3 className="font-sans font-bold text-base text-white">Sudarshan Ellora</h3>
                     <p className="font-sans text-[11px] text-gray-300">Dublin, Ireland</p>
                   </div>
@@ -1667,7 +1607,7 @@ export default function App() {
                 <div className="flex flex-col gap-3.5 font-sans text-[11.5px] leading-relaxed text-[var(--text-secondary)] bg-[rgba(255,255,255,0.01)] border border-[var(--border)] rounded-xl p-4.5 w-full max-w-[280px] md:max-w-[325px] lg:max-w-full">
                   <div className="flex items-center gap-3">
                     <MapPin className="w-3.5 h-3.5 text-[var(--accent-blue)] shrink-0" />
-                    <span>Dublin, Ireland (Available Globally)</span>
+                    <span>Dublin, Ireland · Available now</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <BookOpen className="w-3.5 h-3.5 text-[var(--accent-teal)] shrink-0" />
@@ -1675,7 +1615,7 @@ export default function App() {
                   </div>
                   <div className="flex items-center gap-3">
                     <Award className="w-3.5 h-3.5 text-yellow-500 shrink-0" />
-                    <span>UCD Advantage & Future Skills Awardee</span>
+                    <span>UCD Advantage, Future Skills & GLP Awards</span>
                   </div>
                 </div>
               </div>
@@ -1695,19 +1635,23 @@ export default function App() {
                   style={{ color: 'var(--text-secondary)' }}
                 >
                   <motion.p variants={fadeInUp}>
-                    I bridge the gap between <span className="text-[#4f7eff] font-medium">raw data and confident decision-making</span>. My background in Electronics & Communication Engineering gave me a rigorous, systems-level way of thinking one I've applied directly to business operations, supply chains, financial planning, and AI governance.
+                    I turn messy business data into <span className="text-[#4f7eff] font-medium">decisions people act on</span>. I'm a Business & Data Analyst with an MSc in Business Analytics from UCD Smurfit and a background in Electronics & Communication Engineering, which gave me a structured, systems-level way of solving problems.
                   </motion.p>
 
                   <motion.p variants={fadeInUp}>
-                    At Wired Mode, I didn't just build dashboards. I mapped where decisions were breaking down, identified which data patterns were trustworthy enough to act on, and translated analytical findings into recommendations that delivered €2.6M in savings and 200+ reclaimed man-hours per quarter.
+                    At Wired Mode in Bengaluru, I worked between clients, procurement, supply chain and finance, reporting directly to the CEO. Using Lean Six Sigma and root-cause analysis, I found where workflows were breaking down and prioritised automation that delivered <span className="text-[#4f7eff] font-medium">€2.6M in annual savings</span> and 200+ man-hours a quarter, alongside 35% fewer stockouts and 40% faster reporting.
                   </motion.p>
 
                   <motion.p variants={fadeInUp}>
-                    At Stonehouse Marketing, I specialize in <span className="text-[#4f7eff] font-medium">Product Carbon Footprint (PCF) data analysis</span> and forecasting in accordance with the <span className="text-[#4f7eff] font-medium">GHG Protocol</span> designing compliant, structured, and <span className="text-[#4f7eff] font-medium">GDPR-aligned data pipelines</span> to enable precise environmental reporting and predictive carbon analytics.
+                    For my industry capstone with Stonehouse Marketing, I led a team of 3 that replaced a manual carbon accounting process with an <span className="text-[#4f7eff] font-medium">automated decision support system across 82 products</span>, delivered in 3 months against a 3.5-month plan, working with confidential client data under GDPR.
                   </motion.p>
 
                   <motion.p variants={fadeInUp}>
-                    I believe the hardest part of analytics is not building the model. It's knowing what question to ask, <span className="text-[#4f7eff] font-medium">which signals to trust</span>, and how to communicate uncertainty to decision-makers clearly.
+                    Today, as an AI Intern at Flyrank AI, I build and test machine learning models, one of which beat the existing rule by <span className="text-[#4f7eff] font-medium">3.1x</span>, and I use Claude, ChatGPT, Gemini and n8n every day while checking every result against the data.
+                  </motion.p>
+
+                  <motion.p variants={fadeInUp}>
+                    I believe the hardest part of analytics is not building the model. It's knowing what question to ask, <span className="text-[#4f7eff] font-medium">which signals to trust</span>, and how to explain the answer so decision-makers can act on it.
                   </motion.p>
                 </motion.div>
               </div>
