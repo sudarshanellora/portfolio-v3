@@ -60,6 +60,7 @@ import {
   skillsData,
   educationData,
   certificationsData,
+  achievementsData,
   contactData,
   testimonialsData,
   KPICard,
@@ -691,7 +692,7 @@ export default function App() {
 
   // Intersection observer setup to update current active navigation item
   useEffect(() => {
-    const sections = ['hero', 'impact', 'about', 'journey', 'projects', 'toolkit', 'education', 'certifications', 'contact'];
+    const sections = ['hero', 'impact', 'about', 'journey', 'projects', 'toolkit', 'education', 'awards', 'certifications', 'contact'];
     
     const observerOptions = {
       root: null,
@@ -1021,7 +1022,7 @@ export default function App() {
 
               {/* Desktop Nav Links */}
               <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-                {['Impact', 'About', 'Journey', 'Projects', 'Toolkit', 'Education', 'Certifications', 'Contact'].map((section) => {
+                {['Impact', 'About', 'Journey', 'Projects', 'Toolkit', 'Education', 'Awards', 'Certifications', 'Contact'].map((section) => {
                   const targetId = section.toLowerCase();
                   const isActive = activeSection === targetId;
                   return (
@@ -1140,7 +1141,7 @@ export default function App() {
                     </div>
 
                     <nav className="flex flex-col gap-3">
-                      {['Impact', 'About', 'Journey', 'Projects', 'Toolkit', 'Education', 'Certifications', 'Contact'].map((sec) => {
+                      {['Impact', 'About', 'Journey', 'Projects', 'Toolkit', 'Education', 'Awards', 'Certifications', 'Contact'].map((sec) => {
                         const targetId = sec.toLowerCase();
                         const isActive = activeSection === targetId;
                         return (
@@ -2402,6 +2403,61 @@ export default function App() {
 
               </div>
 
+            </div>
+          </section>
+
+          {/* SECTION 7B: AWARDS & ACHIEVEMENTS */}
+          <section id="awards" className="py-24 relative overflow-hidden" style={{ backgroundColor: 'var(--bg-base)' }}>
+            <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+              <div className="text-center mb-16">
+                <p className="text-label color-accent-blue mb-2.5">BEYOND THE CLASSROOM</p>
+                <h2 className="text-h2 color-text-primary mb-3">Awards &amp; Achievements</h2>
+                <p className="font-sans text-body-lg" style={{ color: 'var(--text-secondary)' }}>
+                  Recognition, leadership and research from UCD Smurfit and my engineering degree.
+                </p>
+              </div>
+
+              {Array.from(new Set(achievementsData.map((a) => a.group))).map((group) => (
+                <div key={group} className="mb-12 last:mb-0">
+                  <h3 className="font-sans text-xs font-bold uppercase tracking-[0.14em] text-[var(--text-dim)] mb-5">
+                    {group}
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    {achievementsData.filter((a) => a.group === group).map((item, idx) => (
+                      <motion.div
+                        key={item.title}
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-10px" }}
+                        transition={{ delay: (idx % 2) * 0.06 }}
+                        className="custom-card p-6 md:p-7 flex flex-col gap-3 relative bg-[var(--bg-surface)] border border-[var(--border)] rounded-xl group transition-all hover:translate-y-[-4px]"
+                      >
+                        <div className="absolute top-0 inset-x-0 h-[2px] rounded-full bg-[linear-gradient(90deg,#4f7eff,#7c5cfc)] opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <div className="flex items-start gap-3">
+                          <span className="text-2xl leading-none shrink-0" aria-hidden="true">{item.icon}</span>
+                          <div>
+                            <h4 className="font-sans font-semibold text-[15px] leading-snug text-[var(--text-primary)]">{item.title}</h4>
+                            <p className="font-sans text-[12px] font-medium text-[var(--accent-blue)] mt-0.5">{item.org}</p>
+                          </div>
+                        </div>
+                        {item.highlight && (
+                          <p className="font-sans text-[13px] font-semibold leading-snug px-3 py-2 rounded-lg bg-[rgba(0,201,167,0.08)] text-[var(--accent-teal)] border border-[rgba(0,201,167,0.2)]">
+                            🏆 {item.highlight}
+                          </p>
+                        )}
+                        <p className="font-sans text-[13px] md:text-[13.5px] leading-relaxed text-[var(--text-secondary)]">
+                          {item.description}
+                        </p>
+                        <div className="flex flex-wrap gap-1.5 mt-auto pt-1">
+                          {item.tags.map((t) => (
+                            <span key={t} className="font-sans text-[11px] font-medium px-2 py-0.5 rounded-md text-[var(--text-dim)] bg-[var(--bg-raised)] border border-[var(--border)]">{t}</span>
+                          ))}
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </section>
 

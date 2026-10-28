@@ -52,6 +52,16 @@ export interface CertificationItem {
   status: 'Completed' | 'In Progress';
 }
 
+export interface AchievementItem {
+  icon: string;
+  group: 'UCD Smurfit · MSc Business Analytics' | 'Engineering · JSS Academy of Technical Education';
+  title: string;
+  org: string;
+  highlight?: string;
+  description: string;
+  tags: string[];
+}
+
 export interface ContactItem {
   icon: string;
   type: string;
@@ -335,6 +345,66 @@ export const certificationsData: CertificationItem[] = [
   { org: "CSSC", name: "Lean Six Sigma Yellow Belt", status: "Completed" },
   { org: "McKinsey", name: "McKinsey Forward Program", status: "Completed" },
   { org: "PMI", name: "PMI Essentials M.O.R.E. — Maximising Project Success", status: "In Progress" }
+];
+
+export const achievementsData: AchievementItem[] = [
+  {
+    icon: "🏆",
+    group: "UCD Smurfit · MSc Business Analytics",
+    title: "UCD Future Skills Award",
+    org: "UCD Careers Network",
+    highlight: "Won the Business Analytics Challenge in the Coca-Cola Analytical Thinking session",
+    description: "Completed an industry-led skills programme run with leading employers. Coca-Cola (Analytical Thinking): moving from data to knowledge, insight and action, and choosing the right data over more data. PwC (Technological Literacy): responsible GenAI use, AI hallucinations and prompt engineering. Diageo (Creative Thinking): fishbone diagrams and the 5 Whys for root-cause problem solving. KPMG (Motivation & Self-Awareness), Grant Thornton (Empathy & Active Listening), Twilio (Leadership & Social Influence) and PW Group (Curiosity & Lifelong Learning).",
+    tags: ["Coca-Cola", "PwC", "KPMG", "Grant Thornton", "Diageo", "Twilio", "PW Group"]
+  },
+  {
+    icon: "🌐",
+    group: "UCD Smurfit · MSc Business Analytics",
+    title: "Global Leadership Programme (GLP) 2025–26",
+    org: "UCD Smurfit Graduate Business School",
+    description: "Completed the year-long GLP across its three pillars. Student initiative: volunteered at a Sandymount beach clean-up and at Hope Fest supporting people experiencing homelessness in Dublin, and took part in the Literary & Historical, Indian and International Societies. Workplace skills: time and task management, effective presentation, McKinsey Forward and Bloomberg Spreadsheet Analysis. Career planning: the UCD Smurfit Analytics Summit (IBM, AIB, AWS, Deloitte, Slalom), a Break into Consulting session (McKinsey, Accenture, Deloitte), the UCD Alumni Mentor Programme and career fairs.",
+    tags: ["Leadership", "Volunteering", "Presentation Skills", "Career Development"]
+  },
+  {
+    icon: "🎓",
+    group: "UCD Smurfit · MSc Business Analytics",
+    title: "UCD Advantage Award",
+    org: "University College Dublin",
+    description: "UCD award recognising co-curricular engagement and skills development alongside the MSc.",
+    tags: ["Co-curricular Engagement", "Skills Development"]
+  },
+  {
+    icon: "💡",
+    group: "UCD Smurfit · MSc Business Analytics",
+    title: "UCD Creative Hackathon",
+    org: "UCD Innovation Academy",
+    description: "Worked in a team to develop \"The Homies Lounge\", a student wellbeing solution, from idea to prototype, then presented the outcome. Built teamwork, creativity and user-centred problem-solving skills.",
+    tags: ["Prototyping", "User-Centred Design", "Teamwork", "Pitching"]
+  },
+  {
+    icon: "📄",
+    group: "Engineering · JSS Academy of Technical Education",
+    title: "Published Machine Learning Research Paper",
+    org: "EMMITTER Journal",
+    description: "Published a machine learning research paper during the BE in Electronics & Communication Engineering.",
+    tags: ["Machine Learning", "Research", "Publication"]
+  },
+  {
+    icon: "🥇",
+    group: "Engineering · JSS Academy of Technical Education",
+    title: "Best Project Award",
+    org: "JSS Academy of Technical Education, Bengaluru",
+    description: "Awarded Best Project during the engineering degree.",
+    tags: ["Engineering Project", "Award"]
+  },
+  {
+    icon: "🤖",
+    group: "Engineering · JSS Academy of Technical Education",
+    title: "Co-founder, AI Club",
+    org: "JSSATE Bengaluru AI Club",
+    description: "Co-founded the college AI Club and led its events, delivering 5 major student events and running Python workshops for students, helping build a learning community of 1000+ students.",
+    tags: ["Leadership", "Python Workshops", "Community Building"]
+  }
 ];
 
 export const contactData: ContactItem[] = [
