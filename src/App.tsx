@@ -1242,7 +1242,7 @@ export default function App() {
                   style={{ color: 'var(--text-dim)' }}
                 >
                   <span>📍 Dublin, Ireland</span>
-                  <span>🎓 UCD Smurfit — MSc Business Analytics</span>
+                  <span>🎓 UCD Smurfit, MSc Business Analytics</span>
                   <span>🟢 Available 2026</span>
                 </motion.div>
 
@@ -1611,7 +1611,7 @@ export default function App() {
                   </div>
                   <div className="flex items-center gap-3">
                     <BookOpen className="w-3.5 h-3.5 text-[var(--accent-teal)] shrink-0" />
-                    <span>MSc Business Analytics — UCD Smurfit</span>
+                    <span>MSc Business Analytics, UCD Smurfit</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Award className="w-3.5 h-3.5 text-yellow-500 shrink-0" />
