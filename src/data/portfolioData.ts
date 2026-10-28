@@ -60,6 +60,7 @@ export interface AchievementItem {
   highlight?: string;
   description: string;
   tags: string[];
+  link?: { label: string; href: string };
 }
 
 export interface ContactItem {
@@ -327,7 +328,7 @@ export const educationData: EducationEntry[] = [
     gradeBadge: "1:1",
     highlights: [
       "Co-founded AI Club at undergraduate institution",
-      "Machine Learning research paper published in EMMITTER Journal",
+      "Machine learning research paper published in EMITTER International Journal of Engineering Technology",
       "Secured Best Project Award",
       "Engineering foundation in systems thinking, signal processing, and mathematics"
     ]
@@ -370,8 +371,8 @@ export const achievementsData: AchievementItem[] = [
     group: "UCD Smurfit · MSc Business Analytics",
     title: "UCD Advantage Award",
     org: "University College Dublin",
-    description: "UCD award recognising co-curricular engagement and skills development alongside the MSc.",
-    tags: ["Co-curricular Engagement", "Skills Development"]
+    description: "Awarded for completing three activities alongside the MSc: volunteering at a Sandymount beach clean-up, earning the Bloomberg Spreadsheet Analysis certificate, and taking part in the UCD Creative Hackathon.",
+    tags: ["Volunteering", "Bloomberg Certification", "Hackathon"]
   },
   {
     icon: "💡",
@@ -384,18 +385,20 @@ export const achievementsData: AchievementItem[] = [
   {
     icon: "📄",
     group: "Engineering · JSS Academy of Technical Education",
-    title: "Published Machine Learning Research Paper",
-    org: "EMMITTER Journal",
-    description: "Published a machine learning research paper during the BE in Electronics & Communication Engineering.",
-    tags: ["Machine Learning", "Research", "Publication"]
+    title: "Published Research: ML Classification for COVID-19 Detection from CT Images",
+    org: "EMITTER International Journal of Engineering Technology · Vol. 10, No. 1 (2022)",
+    description: "Co-authored a paper classifying COVID and non-COVID cases from CT scans. Extracted statistical and GLCM texture features and compared classifiers, reaching about 94.5% accuracy with Random Forest and 91% with SVM.",
+    tags: ["Machine Learning", "Random Forest", "SVM", "Image Features (GLCM)", "Publication"],
+    link: { label: "Read the paper", href: "https://emitter.pens.ac.id/index.php/emitter/article/view/672" }
   },
   {
     icon: "🥇",
     group: "Engineering · JSS Academy of Technical Education",
     title: "Best Project Award",
-    org: "JSS Academy of Technical Education, Bengaluru",
-    description: "Awarded Best Project during the engineering degree.",
-    tags: ["Engineering Project", "Award"]
+    org: "JSS Academy of Technical Education, Bengaluru · Aug 2022 – Aug 2023",
+    highlight: "Funded by KSCST and showcased at an IEEE conference",
+    description: "Non-invasive detection of haemoglobin and glucose levels. Led a team of four collecting PPG signals and metadata with a MAX30102 pulse oximeter sensor, applied statistical analysis to extract morphological features, and built a KNN regression model to predict haemoglobin and glucose levels.",
+    tags: ["Signal Processing", "Statistical Analysis", "KNN Regression", "Team Leadership"]
   },
   {
     icon: "🤖",

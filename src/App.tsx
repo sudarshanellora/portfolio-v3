@@ -329,7 +329,7 @@ function ResumeView() {
               </div>
               <p className="text-[12px] text-gray-600 font-semibold">Visvesvaraya Technological University (VTU) — JSS Academy Of Technical Education, Bengaluru, Karnataka, India</p>
               <ul className="list-disc pl-5 text-[11.5px] text-gray-700 mt-0.5 space-y-0.5">
-                <li>Co-founded AI Club, research paper published in EMMITTER Journal, secured the best project and presented at IEEE</li>
+                <li>Co-founded AI Club, research paper published in EMITTER International Journal of Engineering Technology, secured the best project and presented at IEEE</li>
               </ul>
             </div>
           </div>
@@ -2448,6 +2448,11 @@ export default function App() {
                         <p className="font-sans text-[13px] md:text-[13.5px] leading-relaxed text-[var(--text-secondary)]">
                           {item.description}
                         </p>
+                        {item.link && (
+                          <a href={item.link.href} target="_blank" rel="noreferrer" className="font-sans text-[13px] font-semibold text-[var(--accent-blue)] hover:underline w-fit">
+                            {item.link.label} ↗
+                          </a>
+                        )}
                         <div className="flex flex-wrap gap-1.5 mt-auto pt-1">
                           {item.tags.map((t) => (
                             <span key={t} className="font-sans text-[11px] font-medium px-2 py-0.5 rounded-md text-[var(--text-dim)] bg-[var(--bg-raised)] border border-[var(--border)]">{t}</span>
