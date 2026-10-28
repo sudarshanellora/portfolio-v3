@@ -156,11 +156,26 @@ export const frameworkSteps: FrameworkStep[] = [
 
 export const experienceData: ExperienceRole[] = [
   {
+    role: "Artificial Intelligence Intern",
+    company: "Flyrank AI",
+    location: "Dublin, Ireland",
+    period: "August 2026 – Present",
+    badge: "Current Role",
+    businessContext: "Flyrank AI works with client websites and needed a better way to decide which pages to review first. The existing approach was a hand-written prioritisation rule. The task was to test whether machine learning could rank pages more accurately, and to make sure any model was validated properly before anyone relied on it.",
+    bullets: [
+      "Built and evaluated an ML pipeline in Python (logistic regression, decision tree, random forest) on a 30,000-row structured content-performance dataset with 44 features, using client-holdout validation to prevent cross-client leakage.",
+      "The random forest model reached Precision@50 of 0.74 vs. 0.24 for the hand-written baseline rule, a 3.1x improvement in correctly prioritising pages for review.",
+      "Diagnosed and corrected a data-leakage issue in an interpretable decision-tree model by identifying a feature that directly encoded the target label.",
+      "Use Claude, ChatGPT and Gemini in daily work, plus n8n for workflow automation when needed, to frame findings and polish write-ups while keeping client data out of AI tools."
+    ],
+    techStack: ["Python", "Machine Learning", "Random Forest", "Model Evaluation", "Claude", "ChatGPT", "Gemini", "n8n"],
+    impactCallout: "✦ 3.1x improvement in page prioritisation precision · data leakage caught and fixed"
+  },
+  {
     role: "Industry Capstone Project Consultant",
     company: "Stonehouse Marketing Ltd",
     location: "Dublin, Ireland",
-    period: "May 2026 – Present",
-    badge: "Current Role",
+    period: "May 2026 – August 2026",
     businessContext: "Stonehouse is a Distribution company requiring structured analysis of the carbon footprint of its product portfolio. The engagement centres on calculating Product Carbon Footprints (PCF) per product using historical packaging and product data, building forecasting models to project future emissions, and delivering a standards-aligned reporting process compliant with GHG Protocol and ISO 14064:2018.",
     bullets: [
       "Map end-to-end emissions data flows and decision points across the product lifecycle to pinpoint exactly where human oversight is still required before any automation, surfacing data constraints and traceability gaps that would otherwise only emerge after deployment.",
